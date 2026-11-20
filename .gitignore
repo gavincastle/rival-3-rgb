@@ -1,0 +1,6 @@
+/dist/
+/Presets/
+/Rival 3 RGB preset.txt
+*.exe
+*.pdb
+*.tmp
