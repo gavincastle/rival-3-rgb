@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Control the three lighting zones on a wired SteelSeries Rival 3 Gen 2 over USB.">
+  <title>Rival 3 RGB</title>
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./app.mjs"></script>
+</head>
+<body>
+  <main class="app">
+    <header class="hero">
+      <div class="device-label">SteelSeries · Wired Gen 2</div>
+      <h1>Rival 3 <span>RGB</span></h1>
+      <p>Control your mouse lighting directly over USB.</p>
+    </header>
+
+    <section class="connection" aria-label="USB connection">
+      <div class="connection-state">
+        <span id="indicator" class="indicator" aria-hidden="true"></span>
+        <strong id="connection-label">Disconnected</strong>
+      </div>
+      <button id="connect" class="primary" disabled>Connect mouse</button>
+    </section>
+    <p id="status" class="status" role="status" aria-live="polite">Plug in your mouse, then select it in the browser prompt.</p>
+
+    <fieldset id="controls" disabled>
+      <legend>Lighting zones</legend>
+      <div id="zones" class="zones"></div>
+      <div class="actions">
+        <input id="all-colors" class="group-color" type="color" value="#33e2bf" aria-label="Color for all zones">
+        <button id="set-all">Set all zones</button>
+        <button id="off">Lights off</button>
+      </div>
+
+      <div class="settings">
+        <div class="setting">
+          <label for="presets">Presets</label>
+          <div class="setting-row">
+            <select id="presets" aria-label="Presets"><option value="">Choose a preset</option></select>
+            <button id="save-preset">Save preset</button>
+          </div>
+        </div>
+        <div class="setting">
+          <label for="startup">Mouse startup lighting</label>
+          <div class="setting-row">
+            <select id="startup">
+              <option value="">Choose startup mode</option>
+              <option value="0">Off</option>
+              <option value="1">Click reactive</option>
+              <option value="2">Rainbow</option>
+              <option value="3">Rainbow + click reactive</option>
+            </select>
+            <button id="save-startup" disabled>Save to mouse</button>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+    <footer>
+      <span>Presets stay in this browser.</span>
+      <a href="https://github.com/gavincastle/rival-3-rgb#credits-and-protocol-references">Source &amp; credits</a>
+    </footer>
+    <noscript><p>Enable JavaScript to use the mouse controls.</p></noscript>
+  </main>
+</body>
+</html>

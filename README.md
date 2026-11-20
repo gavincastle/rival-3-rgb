@@ -2,6 +2,10 @@
 
 A small, portable Windows app for the **wired SteelSeries Rival 3 Gen 2** (USB ID `1038:1870`). It controls lighting directly over USB and runs without SteelSeries GG. This is an independent project.
 
+## Use it in your browser
+
+Open [Rival 3 RGB for the web](https://gavincastle.github.io/rival-3-rgb/) in desktop Chrome or Edge. Plug in your mouse, click **Connect mouse**, and select it in the browser prompt. The website uses WebHID to send commands over USB. Browser presets stay in that browser, and leaving the tab open allows it to restore the last setup when the mouse reconnects. Managed browsers can restrict WebHID access.
+
 ## Run the app
 
 Extract the Windows release ZIP to a folder where you can save files, then open `Rival 3 RGB.exe`. The release executable is unsigned. Close SteelSeries GG and Prism if they override the mouse lighting.
@@ -21,4 +25,6 @@ Run `build.ps1` in PowerShell on Windows. The script uses the Windows .NET Frame
 - [Alloyctl’s Rival 3 Gen 2 protocol notes](https://alloy.szymon-wilczek.me/protocol/steelseries-rival3-gen2.html) were a reference for the USB report layout, command acknowledgments, and how the rainbow and manual color modes interact.
 - [Microsoft’s device notification documentation](https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-registerdevicenotificationw) was a reference for detecting USB reconnects.
 
-This app implements the protocol in C# and bundles no third-party code or libraries.
+- [Chrome’s WebHID guide](https://developer.chrome.com/docs/capabilities/hid) was a reference for browser USB access and reconnect events.
+
+The desktop app implements the protocol in C# and the web app in JavaScript. Both use built-in platform APIs.
